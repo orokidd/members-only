@@ -8,6 +8,9 @@ const passport = require("passport")
 const pool = require("./models/pool")
 const initializePassport = require("./config/passport")
 
+const authRouter = require("./routes/auth.routes")
+const indexRouter = require("./routes/index.routes")
+
 const app = express();
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
@@ -25,3 +28,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 initializePassport(passport, pool);
+
+app.use("/", authRouter)
+app.use("/", indexRouter)
