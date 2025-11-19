@@ -31,3 +31,10 @@ initializePassport(passport, pool);
 
 app.use("/", authRouter)
 app.use("/", indexRouter)
+
+app.listen(3000, (error) => {
+  if (error) {
+    throw error;
+  }
+  console.log("app listening on port 3000");
+});

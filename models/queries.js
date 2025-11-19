@@ -14,6 +14,12 @@ async function getAllPosts() {
   return rows;
 }
 
+async function checkMembership(userId) {
+  const query = "SELECT role_id FROM users WHERE id = $1"
+  const { rows } = await pool.query(query, [userId]);
+  return rows[0];
+}
+
 async function getAllBooks() {
   const query = `
     SELECT
@@ -65,4 +71,5 @@ module.exports = {
   getAllBooks,
   getBookById,
   getAllPosts,
+  checkMembership,
 };

@@ -4,26 +4,26 @@ const pool = require("../models/pool")
 const bcrypt = require("bcryptjs")
 
 const controller = {
-    getLogin: (req, res) => {
+    getSignIn: (req, res) => {
         if (req.isAuthenticated()) {
             return res.redirect("/")
         }
-        res.render("login-form")
+        res.render("./sign-in/sign-in")
     },
 
-    postLogin: passport.authenticate("local", {
+    postSignIn: passport.authenticate("local", {
         successRedirect: "/",
-        failureRedirect: "/login"
+        failureRedirect: "/sign-in"
     }),
 
-    getRegister: (req, res) => {
+    getSignUp: (req, res) => {
         if (req.isAuthenticated()) {
             return res.redirect("/")
         }
-        res.render("sign-up-form")
+        res.render("./sign-up/sign-up")
     },
 
-    postRegister: async (req, res) => {
+    postSignUp: async (req, res) => {
         try {
             const hashedPassword = await bcrypt.hash(req.body.password, 10)
             await pool.query("INSERT INTO users (fullname, username, password_hash) VALUES ($1, $2, $3)", [req.body.fullname, req.body.username, hashedPassword]);
