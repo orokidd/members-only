@@ -1,4 +1,18 @@
-const pool = require("./pool")
+const pool = require("./pool");
+
+async function getAllPosts() {
+  const query = `SELECT 
+  users.fullname,
+  posts.title,
+  posts.content,
+  posts.created_at
+  FROM posts
+  INNER JOIN users ON posts.user_id = users.id
+  ORDER BY posts.created_at DESC`
+  
+  const { rows } = await pool.query(query)
+  return rows;
+}
 
 async function getAllBooks() {
   const query = `
@@ -48,6 +62,7 @@ async function getBookById(id) {
 }
 
 module.exports = {
-    getAllBooks,
-    getBookById
-}
+  getAllBooks,
+  getBookById,
+  getAllPosts,
+};

@@ -1,6 +1,9 @@
+const db = require("../models/queries")
+
 const controller = {
-    getIndex: (req, res) => {
-        res.render("index", { user: req.user })
+    getIndex: async (req, res) => {
+        const allPosts = await db.getAllPosts()
+        res.render("index", { user: req.user , posts: allPosts})
     }
 }
 
