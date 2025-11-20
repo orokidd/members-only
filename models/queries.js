@@ -20,6 +20,11 @@ async function checkMembership(userId) {
   return rows[0];
 }
 
+async function changeMemberStatus(userId, newRole) {
+  const query = "UPDATE users SET role_id = $1  WHERE id = $2"
+  await pool.query(query, [newRole, userId])
+}
+
 async function getAllBooks() {
   const query = `
     SELECT
@@ -72,4 +77,5 @@ module.exports = {
   getBookById,
   getAllPosts,
   checkMembership,
+  changeMemberStatus,
 };
