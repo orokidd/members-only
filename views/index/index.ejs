@@ -7,5 +7,27 @@
 </head>
 <body>
     <h1>This is the home page mr pepe julian ozima</h1>
+    <div class="header">
+        <div>
+            <h1>Website Title</h1>
+        </div>
+        <% if (user) { %>
+            <div>
+                <p>Welcome back, <%= user.fullname %></p>
+            </div>
+        <% } else { %>
+            <div>
+                <a href="/sign-in">Login</a>
+            </div>
+        <% } %>
+    </div>
+    
+    <div class="main">
+        <% posts.forEach(post => { %>
+            <div>
+                <%= post.title %>
+            </div>
+        <% }); %>
+    </div>
 </body>
 </html>
