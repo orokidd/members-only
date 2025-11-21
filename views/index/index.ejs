@@ -26,8 +26,15 @@
     <div class="main">
         <% posts.forEach(post => { %>
             <div>
+                <%= user?.role_id == 2 ? post.fullname : "Anonymous" %> 
+            </div>
+            <div>
                 <%= post.title %>
             </div>
+            <div>
+                <%= post.content %>
+            </div>
+            <br>
         <% }); %>
     </div>
 </body>
