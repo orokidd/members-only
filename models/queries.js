@@ -19,6 +19,11 @@ async function newPost(postData) {
   await pool.query(query, [postData.user_id, postData.title, postData.content])
 }
 
+async function newUser(newUserData) {
+  const query = "INSERT INTO users (fullname, username, password_hash) VALUES ($1, $2, $3)"
+  await pool.query(query, [newUserData.fullname, newUserData.username, newUserData.password_hash])
+}
+
 async function checkMembership(userId) {
   const query = "SELECT role_id FROM users WHERE id = $1"
   const { rows } = await pool.query(query, [userId]);
@@ -83,5 +88,6 @@ module.exports = {
   getAllPosts,
   checkMembership,
   changeMemberStatus,
-  newPost
+  newPost,
+  newUser
 };

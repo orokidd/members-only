@@ -26,7 +26,9 @@ const controller = {
     postSignUp: async (req, res) => {
         try {
             const hashedPassword = await bcrypt.hash(req.body.password, 10)
-            await pool.query("INSERT INTO users (fullname, username, password_hash) VALUES ($1, $2, $3)", [req.body.fullname, req.body.username, hashedPassword]);
+            const newUserData = { fullname: req.body.fullname, username: req.body.username, password_hash: hashedPassword}
+            
+            await db.newUser(newUserData)
             res.redirect("/")
         } catch(err) {
             console.log(err)
