@@ -1,11 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Membership</title>
-</head>
-<body>
-    <h1>you are a member of the kool kappa klep</h1>
-</body>
+  </head>
+  <body>
+    <h1>kool kappa klep</h1>
+    <div>
+      <% if (user.role_id === 2) { %>
+      <div class="member-status">✅ You're already a member</div>
+      <% } else { %>
+      <div class="member-status">
+        ❌ You're not a member yet.
+
+        <% if (locals.error) { %>
+            <div class="error-text">
+                <%= error %>
+            </div>
+        <% } %>
+
+        <form action="/member" method="POST">
+            <input type="password" name="secret_password" placeholder="Enter secret passcode" required>
+            <button type="submit">Become a member</button>
+        </form>
+      </div>
+      <% } %>
+    </div>
+  </body>
 </html>

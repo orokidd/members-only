@@ -6,7 +6,7 @@ const controller = {
             return res.redirect("/sign-in")
         }
 
-        res.render("./member/member")
+        res.render("./member/member", {user: req.user})
     },
 
     postMember: async (req, res) => {
@@ -18,7 +18,7 @@ const controller = {
         const currentUserId = req.user.id; // From session
 
         if (secretPassword !== process.env.MEMBER_PASSCODE) {
-            return res.render("./member/member", { error: "Wrong Passcode" })
+            return res.render("./member/member", { user: req.user, error: "Wrong Passcode" })
         }
 
         try {
@@ -26,7 +26,7 @@ const controller = {
             res.redirect("/")
         } catch (err) {
             console.log(err);
-            res.render("./member/member", { error: "Failed to update status" })
+            res.render("./member/member", { user: req.user, error: "Failed to update status" })
         }
 
     }
