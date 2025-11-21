@@ -5,7 +5,6 @@ const controller = {
         if (!req.isAuthenticated()) {
             return res.redirect("/sign-in")
         }
-
         res.render("./member/member", {user: req.user})
     },
 

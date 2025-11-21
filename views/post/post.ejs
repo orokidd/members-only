@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+    <h1>This is the post page mr pepe julian ozima</h1>
+    <div>
+        Current user is <%= user.username %>
+    </div>
+
+    <div class="form-container">
+        <form action="/post" method="POST">
+            <input type="text" name="title" required placeholder="Title">
+            <textarea name="content" id="post-content" placeholder="Post content" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

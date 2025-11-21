@@ -11,6 +11,7 @@ const initializePassport = require("./config/passport")
 const authRouter = require("./routes/auth.routes")
 const indexRouter = require("./routes/index.routes")
 const membershipRouter = require("./routes/membership.routes")
+const postRouter = require("./routes/post.routes")
 
 const app = express();
 app.set("view engine", "ejs");
@@ -33,6 +34,7 @@ initializePassport(passport, pool);
 app.use("/", authRouter)
 app.use("/", indexRouter)
 app.use("/", membershipRouter)
+app.use("/", postRouter)
 
 app.listen(3000, (error) => {
   if (error) {

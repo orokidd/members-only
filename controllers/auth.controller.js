@@ -1,6 +1,5 @@
 const db = require("../models/queries")
 const passport = require("passport")
-const pool = require("../models/pool")
 const bcrypt = require("bcryptjs")
 
 const controller = {
@@ -27,7 +26,7 @@ const controller = {
         try {
             const hashedPassword = await bcrypt.hash(req.body.password, 10)
             const newUserData = { fullname: req.body.fullname, username: req.body.username, password_hash: hashedPassword}
-            
+
             await db.newUser(newUserData)
             res.redirect("/")
         } catch(err) {
