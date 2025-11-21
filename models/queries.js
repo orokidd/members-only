@@ -14,6 +14,11 @@ async function getAllPosts() {
   return rows;
 }
 
+async function newPost(postData) {
+  const query = "INSERT INTO posts (user_id, title, content, created_at) VALUES ($1, $2, $3, NOW())";
+  await pool.query(query, [postData.user_id, postData.title, postData.content])
+}
+
 async function checkMembership(userId) {
   const query = "SELECT role_id FROM users WHERE id = $1"
   const { rows } = await pool.query(query, [userId]);
@@ -78,4 +83,5 @@ module.exports = {
   getAllPosts,
   checkMembership,
   changeMemberStatus,
+  newPost
 };

@@ -23,7 +23,7 @@ const controller = {
 
         try {
             await db.changeMemberStatus(currentUserId, 2)
-            res.redirect("/")
+            res.redirect("/member")
         } catch (err) {
             console.log(err);
             res.render("./member/member", { user: req.user, error: "Failed to update status" })
