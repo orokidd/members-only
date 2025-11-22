@@ -18,6 +18,10 @@ const controller = {
             return res.render("./post/post", { user: req.user, error: "Title or content can't be empty" })
         }
 
+        if (title.length > 200) {
+            return res.render("./post/post", { user: req.user, error: "Title too long (max 200 characters)" })
+        }
+
         try {
             await db.newPost(newPostData)
             res.redirect("/")

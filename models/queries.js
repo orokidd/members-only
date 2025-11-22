@@ -15,8 +15,8 @@ async function getAllPosts() {
 }
 
 async function newPost(postData) {
-  const query = "INSERT INTO posts (user_id, title, content, created_at) VALUES ($1, $2, $3, NOW())";
-  await pool.query(query, [postData.user_id, postData.title, postData.content])
+  const query = "INSERT INTO posts (title, content, user_id, created_at) VALUES ($1, $2, $3, NOW())";
+  await pool.query(query, [postData.title, postData.content, postData.userId ])
 }
 
 async function newUser(newUserData) {
