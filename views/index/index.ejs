@@ -28,7 +28,7 @@
     <div class="main">
         <% posts.forEach(post => { %>
             <div class="author">
-                <%= user?.role_id == 2 || 3 ? post.fullname : "Anonymous" %> 
+                <%= user?.role_id == 2 || user?.role_id == 3 ? post.fullname : "Anonymous" %> 
             </div>
             <div class="title">
                 <%= post.title %>

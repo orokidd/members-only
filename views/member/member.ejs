@@ -8,7 +8,7 @@
   <body>
     <h1>kool kappa klep</h1>
     <div>
-      <% if (user.role_id === 2 || 3) { %>
+      <% if (user?.role_id === 2 || user?.role_id === 3) { %>
       <div class="member-status">✅ You're already a member</div>
       <% } else { %>
       <div class="member-status">
