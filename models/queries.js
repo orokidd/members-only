@@ -3,6 +3,7 @@ const pool = require("./pool");
 async function getAllPosts() {
   const query = `SELECT 
   users.fullname,
+  posts.id,
   posts.title,
   posts.content,
   posts.created_at
@@ -17,6 +18,11 @@ async function getAllPosts() {
 async function newPost(postData) {
   const query = "INSERT INTO posts (title, content, user_id, created_at) VALUES ($1, $2, $3, NOW())";
   await pool.query(query, [postData.title, postData.content, postData.userId ])
+}
+
+async function deletePost(postId) {
+  const query = "DELETE FROM posts WHERE id = $1";
+  await pool.query(query, [postId])
 }
 
 async function newUser(newUserData) {
@@ -35,59 +41,11 @@ async function changeMemberStatus(userId, newRole) {
   await pool.query(query, [newRole, userId])
 }
 
-async function getAllBooks() {
-  const query = `
-    SELECT
-      books.id,
-      books.title,
-      books.author,
-      books.published_year,
-      books.isbn,
-      books.description,
-      books.pages,
-      books.stock,
-      books.image_url,
-      COALESCE(ARRAY_AGG(genres.name) FILTER (WHERE genres.name IS NOT NULL), '{}') AS genres
-    FROM books
-    LEFT JOIN book_genres ON books.id = book_genres.book_id
-    LEFT JOIN genres ON book_genres.genre_id = genres.id
-    GROUP BY books.id
-    ORDER BY books.title;
-  `;
-  const { rows } = await pool.query(query);
-  return rows;
-}
-
-async function getBookById(id) {
-  const query = `
-    SELECT
-      books.id,
-      books.title,
-      books.author,
-      books.published_year,
-      books.isbn,
-      books.description,
-      books.pages,
-      books.stock,
-      books.image_url,
-      COALESCE(ARRAY_AGG(genres.name) FILTER (WHERE genres.name IS NOT NULL), '{}') AS genres
-    FROM books
-    LEFT JOIN book_genres ON books.id = book_genres.book_id
-    LEFT JOIN genres ON book_genres.genre_id = genres.id
-    WHERE books.id = $1
-    GROUP BY books.id
-  `;
-
-  const { rows } = await pool.query(query, [id]);
-  return rows[0];
-}
-
 module.exports = {
-  getAllBooks,
-  getBookById,
   getAllPosts,
+  deletePost,
   checkMembership,
   changeMemberStatus,
   newPost,
-  newUser
+  newUser,
 };

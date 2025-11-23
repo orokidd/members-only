@@ -1,6 +1,4 @@
 const db = require("../models/queries")
-const express = require("express")
-const passport = require("passport")
 
 const controller = {
     getNewPost: (req, res) => {
@@ -28,6 +26,18 @@ const controller = {
         } catch (err) {
             console.log(err)
             res.status(500).send("error")
+        }
+    },
+
+    deletePost: async (req, res) => {
+        const postId = req.params.postId
+
+        try {
+            await db.deletePost(postId)
+            res.redirect("/")
+        } catch (err) {
+            console.log(err)
+            res.status(500).send("error deleting post")
         }
     }
 }

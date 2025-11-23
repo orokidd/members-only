@@ -4,5 +4,6 @@ const postController = require("../controllers/post.controller");
 
 router.get("/post", postController.getNewPost);
 router.post("/post", postController.postNewPost);
+router.post("/delete/:postId", postController.deletePost)
 
 module.exports = router;
