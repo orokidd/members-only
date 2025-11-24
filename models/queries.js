@@ -15,6 +15,12 @@ async function getAllPosts() {
   return rows;
 }
 
+async function getPostsByUser(userId) {
+  const query = "SELECT users.fullname, posts.id, posts.title, posts.content, posts.created_at FROM posts INNER JOIN users ON posts.user_id = users.id WHERE users.id = $1 ORDER BY posts.created_at DESC"
+  const { rows } = await pool.query(query, [userId])
+  return rows;
+}
+
 async function newPost(postData) {
   const query = "INSERT INTO posts (title, content, user_id, created_at) VALUES ($1, $2, $3, NOW())";
   await pool.query(query, [postData.title, postData.content, postData.userId ])
@@ -48,4 +54,5 @@ module.exports = {
   changeMemberStatus,
   newPost,
   newUser,
+  getPostsByUser,
 };

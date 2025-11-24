@@ -12,6 +12,7 @@ const authRouter = require("./routes/auth.routes")
 const indexRouter = require("./routes/index.routes")
 const membershipRouter = require("./routes/membership.routes")
 const postRouter = require("./routes/post.routes")
+const profileRouter = require("./routes/profile.routes")
 
 const app = express();
 app.set("view engine", "ejs");
@@ -35,6 +36,7 @@ app.use("/", authRouter)
 app.use("/", indexRouter)
 app.use("/", membershipRouter)
 app.use("/", postRouter)
+app.use("/", profileRouter)
 
 app.listen(3000, (error) => {
   if (error) {

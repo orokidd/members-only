@@ -14,10 +14,11 @@
         <% if (user) { %>
             <div>
                 <p>Welcome back, <%= user.fullname %></p>
-                <a href="/profile">Profile</a>
+                <a href="/">Home</a>
                 <a href="/post">New post</a>
                 <a href="/member">Member</a>
                 <a href="/log-out">Log out</a>
+                
             </div>
         <% } else { %>
             <div>
@@ -29,7 +30,7 @@
     <div class="main">
         <% posts.forEach(post => { %>
             <div class="author">
-                <%= user?.role_id == 2 || user?.role_id == 3 ? post.fullname : "Anonymous" %> 
+                <%= post.fullname %> 
             </div>
             <div class="title">
                 <%= post.title %>
@@ -39,11 +40,9 @@
             </div>
 
             <div class="admin-actions">
-                <% if (user?.role_id === 3) { %>
                     <form action="/delete/<%= post.id %>" method="POST">
                         <button type="submit">Delete</button>
                     </form>
-                <% } %>
             </div>
             <br>
         <% }); %>
