@@ -17,7 +17,7 @@ async function getAllPosts() {
 }
 
 async function getUserPosts(userId) {
-  const query = "SELECT users.fullname, posts.id, posts.title, posts.content, posts.created_at FROM posts INNER JOIN users ON posts.user_id = users.id WHERE users.id = $1 ORDER BY posts.created_at DESC"
+  const query = "SELECT users.fullname, posts.id, posts.title, posts.content, posts.created_at FROM posts INNER JOIN users ON posts.user_id = users.id WHERE posts.user_id = $1 ORDER BY posts.created_at DESC"
   const { rows } = await pool.query(query, [userId])
   return rows;
 }
