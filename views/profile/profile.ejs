@@ -39,7 +39,10 @@
                 <%= post.content %>
             </div>
 
-            <div class="admin-actions">
+            <div class="actions">
+                    <div class="edit">
+                        <a href="/edit/<%= post.id %>">Edit</a>
+                    </div>
                     <form action="/delete/<%= post.id %>" method="POST">
                         <button type="submit">Delete</button>
                     </form>

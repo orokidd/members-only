@@ -6,7 +6,8 @@ async function getAllPosts() {
   posts.id,
   posts.title,
   posts.content,
-  posts.created_at
+  posts.created_at,
+  posts.user_id
   FROM posts
   INNER JOIN users ON posts.user_id = users.id
   ORDER BY posts.created_at DESC`
@@ -15,10 +16,16 @@ async function getAllPosts() {
   return rows;
 }
 
-async function getPostsByUser(userId) {
+async function getUserPosts(userId) {
   const query = "SELECT users.fullname, posts.id, posts.title, posts.content, posts.created_at FROM posts INNER JOIN users ON posts.user_id = users.id WHERE users.id = $1 ORDER BY posts.created_at DESC"
   const { rows } = await pool.query(query, [userId])
   return rows;
+}
+
+async function getPostById(postId) {
+    const query = "SELECT posts.id, posts.title, posts.content, posts.created_at, posts.user_id, users.fullname FROM posts INNER JOIN users ON posts.user_id = users.id WHERE posts.id = $1 ORDER BY posts.created_at DESC";
+    const { rows } = await pool.query(query, [postId]);
+    return rows[0];
 }
 
 async function newPost(postData) {
@@ -54,5 +61,6 @@ module.exports = {
   changeMemberStatus,
   newPost,
   newUser,
-  getPostsByUser,
+  getUserPosts,
+  getPostById
 };

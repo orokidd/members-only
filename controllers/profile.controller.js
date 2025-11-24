@@ -10,7 +10,7 @@ const controller = {
         const userId = req.user.id
 
         try {
-            const userPosts = await db.getPostsByUser(userId)
+            const userPosts = await db.getUserPosts(userId)
             res.render("./profile/profile", { user: req.user, posts: userPosts })
         } catch (err) {
             console.log(err)

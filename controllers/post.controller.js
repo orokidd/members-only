@@ -39,6 +39,23 @@ const controller = {
             console.log(err)
             res.status(500).send("error deleting post")
         }
+    },
+
+    getEditPost: async (req, res) => {
+        const postId = req.params.postId
+
+        try {
+            const selectedPost = await db.getPostById(postId)
+
+            if ( req.user.id !== selectedPost.user_id) {
+                return res.redirect("/")
+            }
+
+            res.render("./edit/edit", { user:req.user, post:selectedPost })
+        } catch (err) {
+            console.log(err)
+            res.status(500).send("error fetching post")
+        }
     }
 }
 
