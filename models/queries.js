@@ -28,6 +28,11 @@ async function getPostById(postId) {
     return rows[0];
 }
 
+async function editPost(postId, newPostData) {
+  const query = "UPDATE posts SET title = $1, content = $2 WHERE id = $3"
+  await pool.query(query, [newPostData.title, newPostData.content, postId])
+}
+
 async function newPost(postData) {
   const query = "INSERT INTO posts (title, content, user_id, created_at) VALUES ($1, $2, $3, NOW())";
   await pool.query(query, [postData.title, postData.content, postData.userId ])
@@ -62,5 +67,6 @@ module.exports = {
   newPost,
   newUser,
   getUserPosts,
-  getPostById
+  getPostById,
+  editPost
 };

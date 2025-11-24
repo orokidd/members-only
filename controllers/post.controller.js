@@ -56,6 +56,21 @@ const controller = {
             console.log(err)
             res.status(500).send("error fetching post")
         }
+    },
+
+    postEditPost: async (req, res) => {
+        const postId = req.params.postId
+        const { post_title, post_content } = req.body
+        const newPostData = { title: post_title, content: post_content }
+
+        try {
+            await db.editPost(postId, newPostData)
+            res.redirect("/profile")
+            
+        } catch (err) {
+            console.log(err)
+            res.status(500).send("edit post failed")
+        }
     }
 }
 
