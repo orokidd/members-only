@@ -15,10 +15,24 @@
 .post-title {
     font-size: 1.3rem;
     font-weight: 600;
-    padding-bottom: 8px;
+    padding-bottom: 2px;
 }
 
 .post-content {
     font-size: 1rem;
     color: rgb(200, 200, 200);
+    padding-bottom: 18px;
+}
+
+.post-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.post-author, .post-date {
+    color: var(--accent);
+    font-size: .8rem;
+    background-color: var(--darker-gray);
+    padding: 6px 14px;
+    border-radius: 16px;
 }
