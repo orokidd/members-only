@@ -71,6 +71,7 @@ a {
   --dark-gray: #393939;
   --darker-gray: #2c2c2c;
   --light-gray: #b2b2b2;
+  --red: #e75555;
 }
 
 @font-face {
@@ -141,4 +142,11 @@ footer a {
 
 footer a:hover {
   color: var(--accent-darker);
+}
+
+/* button reset */
+button {
+  background: none;
+  border: none;
+  padding: 0;
 }
