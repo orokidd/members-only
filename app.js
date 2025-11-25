@@ -14,9 +14,12 @@ const membershipRouter = require("./routes/membership.routes")
 const postRouter = require("./routes/post.routes")
 const profileRouter = require("./routes/profile.routes")
 
+const formatDate = require("./utils/formatDate");
+
 const app = express();
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
+app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: false }));
 
 app.use(
@@ -37,6 +40,8 @@ app.use("/", indexRouter)
 app.use("/", membershipRouter)
 app.use("/", postRouter)
 app.use("/", profileRouter)
+
+app.locals.formatDate = formatDate;
 
 app.listen(3000, (error) => {
   if (error) {

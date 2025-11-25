@@ -1,0 +1,20 @@
+<header class="header">
+  <div class="site-icon">
+    <a href="/"><img src="/images/site-icon.jpeg" alt="Book Inventory" /></a>
+  </div>
+
+  <!-- <div class="site-title">
+    <h1>Members Only</h1>
+  </div> -->
+  <div class="header-options">
+    <% if (user) { %>
+    <!-- <p>Welcome back, <%= user.fullname %></p> -->
+    <a href="/profile">Profile</a>
+    <!-- <a href="/post">New post</a> -->
+    <a href="/member">Member</a>
+    <a href="/log-out">Log out</a>
+    <% } else { %>
+    <a href="/sign-in">Login</a>
+    <% } %>
+  </div>
+</header>

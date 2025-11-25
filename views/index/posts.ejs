@@ -1,0 +1,23 @@
+<div class="main">
+  <% posts.forEach(post => { %>
+  <div class="post-container">
+    <div class="post-title"><%= post.title %></div>
+    <div class="post-content"><%= post.content %></div>
+
+    <div class="post-footer">
+        <div class="post-author"><%= user?.role_id == 2 || user?.role_id == 3 ? post.fullname : "Anonymous" %></div>
+        <div class="post-date"><%= formatDate(post.created_at) %></div>
+    </div>
+
+
+    <div class="admin-actions">
+      <% if (user?.role_id === 3) { %>
+      <form action="/delete/<%= post.id %>" method="POST">
+        <button type="submit">Delete</button>
+      </form>
+      <% } %>
+    </div>
+
+  </div>
+  <% }); %>
+</div>
