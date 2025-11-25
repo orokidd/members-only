@@ -6,6 +6,15 @@
     overflow-y: scroll;
 }
 
+.welcome-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+}
+
+.new-post-link {
+    justify-self: end;
+}
+
 .post-container {
     background-color: var(--bg-alt);
     padding: 24px;
