@@ -1,0 +1,41 @@
+.welcome-container {
+    padding-bottom: 30px;
+}
+
+.post-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.post-delete-button {
+    background-color: var(--darker-gray);
+    padding: 8px;
+    border-radius: 24px;
+    cursor: pointer;
+    transition: all ease 0.3s;
+}
+
+.post-delete-button svg {
+    stroke: var(--accent);
+}
+
+.post-delete-button:hover  {
+    background-color: var(--bg);
+}
+
+.post-edit-link {
+    display: inline-block;
+    background-color: var(--darker-gray);
+    padding: 8px;
+    border-radius: 24px;
+    cursor: pointer;
+    transition: all ease 0.3s;
+}
+
+.post-edit-link svg {
+    stroke: var(--accent);
+}
+
+.post-edit-link:hover  {
+    background-color: var(--bg);
+}

@@ -1,54 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-</head>
-<body>
-    <h1>This is the home page mr pepe julian ozima</h1>
-    <div class="header">
-        <div>
-            <h1>Website Title</h1>
-        </div>
-        <% if (user) { %>
-            <div>
-                <p>Welcome back, <%= user.fullname %></p>
-                <a href="/">Home</a>
-                <a href="/post">New post</a>
-                <a href="/member">Member</a>
-                <a href="/log-out">Log out</a>
-                
-            </div>
-        <% } else { %>
-            <div>
-                <a href="/sign-in">Login</a>
-            </div>
-        <% } %>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/default.css" />
+    <link rel="stylesheet" href="/styles/index.css">
+    <link rel="stylesheet" href="/styles/profile.css" />
+    <title>Profile</title>
+  </head>
+  <body>
+    <div class="container">
+      <%- include("../header") %>
+      <%- include("./profile-header") %>
+      <%- include("./profile-posts") %>
     </div>
-    
-    <div class="main">
-        <% posts.forEach(post => { %>
-            <div class="author">
-                <%= post.fullname %> 
-            </div>
-            <div class="title">
-                <%= post.title %>
-            </div>
-            <div class="content">
-                <%= post.content %>
-            </div>
-
-            <div class="actions">
-                    <div class="edit">
-                        <a href="/edit/<%= post.id %>">Edit</a>
-                    </div>
-                    <form action="/delete/<%= post.id %>" method="POST">
-                        <button type="submit">Delete</button>
-                    </form>
-            </div>
-            <br>
-        <% }); %>
-    </div>
-</body>
+  </body>
 </html>
