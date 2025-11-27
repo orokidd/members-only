@@ -1,23 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body> 
-    <h1>This is the post page mr pepe julian ozima</h1>
-    <div>
-        Current user is <%= user.username %>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/default.css" />
+    <link rel="stylesheet" href="/styles/index.css" />
+    <link rel="stylesheet" href="/styles/post.css">
+    <title>New post</title>
+  </head>
+  <body>
+    <div class="container">
+      <%- include("../header") %> 
+      <%- include("./post-header") %>
+      <%- include("./post-form") %>
     </div>
-
-    <div class="form-container">
-        <form action="/post" method="POST">
-            <input type="text" name="title" required placeholder="Title">
-            <textarea name="content" id="post-content" placeholder="Post content" required></textarea>
-            <button type="submit">Submit</button>
-            <button type="button"><a href="/">Cancel</a></button>
-        </form>
-    </div>
-</body>
+  </body>
 </html>
