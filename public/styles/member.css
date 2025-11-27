@@ -1,0 +1,59 @@
+.welcome-container {
+    padding-bottom: 30px;
+}
+
+.member-status {
+    padding: 24px;
+    background-color: var(--bg-alt);
+    border-radius: 12px;
+}
+
+.member-status-text {
+    font-size: 1.3rem;
+    font-weight: 600;
+    padding-bottom: 24px;
+}
+
+.input-group {
+    display: flex;
+    justify-content: center;
+
+    width: 320px;
+    background-color: var(--darker-gray);
+    /* padding: 12px 22px; */
+    border-radius: 28px;
+}
+
+#secret-password-input {
+    border: none;
+    background: none;
+    color: var(--gray);
+    width: 100%;
+    font-size: .8rem;
+    padding-left: 18px;
+}
+
+#secret-password-input:focus {
+    outline:none;
+}
+
+
+.secret_password_submit {
+    cursor: pointer;
+    padding: 12px;
+    border-radius: 50%;
+    transition: all ease 0.3s;
+}
+
+.secret_password_submit:hover {
+    background-color: var(--fg)
+}
+    
+.secret_password_submit svg{
+    stroke: var(--accent);
+    transition: all ease 0.3s;
+}
+
+.secret_password_submit:hover svg {
+    stroke: var(--bg);
+}
