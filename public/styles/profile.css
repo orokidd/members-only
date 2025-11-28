@@ -1,5 +1,37 @@
-.welcome-container {
-    padding-bottom: 30px;
+.post-container {
+    background-color: var(--bg-alt);
+    padding: 24px;
+    border-radius: 12px;
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.post-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    padding-bottom: 6px;
+}
+
+.post-content {
+    font-size: .9rem;
+    color: rgb(200, 200, 200);
+    padding-bottom: 18px;
+}
+
+.post-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.post-author, .post-date {
+    color: var(--accent);
+    font-size: .8rem;
+    background-color: var(--darker-gray);
+    padding: 6px 14px;
+    border-radius: 16px;
 }
 
 .post-actions {

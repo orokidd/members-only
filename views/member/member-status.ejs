@@ -1,16 +1,16 @@
 <% if (user?.role_id === 2 || user?.role_id === 3) { %>
 <div class="member-status">
-    <p class="member-status-text">You're already a member</p>
+    <p class="member-status-text">You are already a member</p>
 </div>
 <% } else { %>
 <div class="member-status">
-    <p class="member-status-text">You're not a member yet. Enter secret passcode to join!</p>
+    <p class="member-status-text">You are not a member yet. Enter secret passcode to join!</p>
 
   <% if (locals.error) { %>
   <div class="error-text"><%= error %></div>
   <% } %>
 
-  <form action="/member" method="POST">
+  <form action="/member" method="POST" class="membership-form">
     <div class="input-group">
         <input type="password" name="secret_password" id="secret-password-input" placeholder="Enter secret passcode" required />
         <button type="submit" class="secret_password_submit">
