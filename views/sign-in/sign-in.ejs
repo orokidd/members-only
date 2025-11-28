@@ -1,28 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/default.css">
+    <link rel="stylesheet" href="/styles/sign-in.css">
     <title>Sign-In</title>
-</head>
-<body>
-    <h1>mister pepe julian ozima, should i call u mister?</h1>
-    <div class="form-container">
-        <form action="/sign-in" method="POST">
-            <div class="input-group">
-                <label for="username">Username:</label>
-                <input type="text" name="username" placeholder="Insert username">
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-container">
+        <div class="form-header">
+            <div class="site-icon">
+                <img src="/images/site-icon.jpeg" alt="Book Inventory" />
             </div>
+            <h1>Sign In</h1>
+            <p>Please enter your credentials to sign in</p>
+        </div>
+        
+        <form action="/sign-in" method="POST" class="sign-in-form">
+          <div class="input-group">
+            <!-- <label for="username">Username:</label> -->
+            <input type="text" name="username" placeholder="Enter your username" />
+          </div>
 
-            <div class="input-group">
-                <label for="password">Password:</label>
-                <input type="password" name="password" placeholder="Insert password">
-            </div>
+          <div class="input-group">
+            <!-- <label for="password">Password:</label> -->
+            <input type="password" name="password" placeholder="Password" />
+          </div>
 
-            <div class="button-group">
-                <button type="submit">Login</button>
-            </div>
+          <div class="button-group">
+            <button type="submit" class="sign-in-btn">Sign in</button>
+          </div>
+
+          <div class="sign-up-text">
+            <p>Don't have an account? <a href="/sign-up">Sign Up</a></p>
+          </div>
         </form>
+      </div>
     </div>
-</body>
+  </body>
 </html>
