@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/default.css" />
+    <link rel="stylesheet" href="/styles/index.css" />
+    <link rel="stylesheet" href="/styles/edit.css">
+    <link rel="stylesheet" href="/styles/post-form.css">
     <title>Edit Post</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <form action="/edit/<%= post.id %>" method="POST">
-            <input type="text" name="post_title" value="<%= post.title %>">
-            <textarea name="post_content"><%= post.content %></textarea>
-
-            <button type="submit">Submit</button>
-            <a href="/profile">Cancel</a>
-        </form>
+      <%- include("../header") %> 
+      <%- include("./edit-header") %>
+      <%- include('./edit-form') %>
     </div>
-</body>
+  </body>
 </html>
