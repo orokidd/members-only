@@ -1,33 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
-</head>
-<body>
-    <h1>thank you for coming in, why are u gay</h1>
-    <div class="form-container">
-        <form action="/sign-up" method="POST">
-            <div class="input-group">
-                <label for="fullname">Full Name</label>
-                <input type="text" name="fullname" required>
-            </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/default.css" />
+    <link rel="stylesheet" href="/styles/sign-in-up.css" />
+    <title>Sign Up</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-container">
 
-            <div class="input-group">
-                <label for="username">Username</label>
-                <input type="text" name="username" required>
-            </div>
+        <div class="form-header">
+          <div class="site-icon">
+            <img src="/images/site-icon.jpeg" alt="Book Inventory" />
+          </div>
+          <h1>Sign Up</h1>
+          <p>Lets get started with your new account</p>
+        </div>
 
-            <div class="input-group">
-                <label for="password">Password</label>
-                <input type="password" name="password" required>
-            </div>
+        <form action="/sign-up" method="POST" class="sign-up-form">
+          <div class="input-group">
+            <input type="text" name="fullname" placeholder="Your Full Name" required />
+          </div>
 
-            <div class="button-group">
-                <button type="submit">Sign up</button>
-            </div>
+          <div class="input-group">
+            <input type="text" name="username" placeholder="Your Username" required />
+          </div>
+
+          <div class="input-group">
+            <input type="password" name="password" placeholder="Create Password" required />
+          </div>
+
+          <div class="input-group">
+            <input type="password" name="repeat-password" placeholder="Repeat Password" required />
+          </div>
+
+          <div class="button-group">
+            <button type="submit" class="sign-up-btn">Sign up</button>
+          </div>
+            
+          <div class="sign-in-text">
+            <p>Already have an account? <a href="/sign-in">Sign In</a></p>
+          </div>
         </form>
+      </div>
     </div>
-</body>
+  </body>
 </html>

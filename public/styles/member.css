@@ -45,7 +45,7 @@
 }
 
 .secret_password_submit:hover {
-    background-color: var(--fg)
+    background-color: var(--accent)
 }
     
 .secret_password_submit svg{
