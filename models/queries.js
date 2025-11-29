@@ -48,6 +48,12 @@ async function newUser(newUserData) {
   await pool.query(query, [newUserData.fullname, newUserData.username, newUserData.password_hash])
 }
 
+async function checkUsernameExists(username) {
+  const query = "SELECT id FROM users WHERE username = $1";
+  const { rows } = await pool.query(query, [username]);
+  return rows.length > 0; // Returns true or false
+}
+
 async function checkMembership(userId) {
   const query = "SELECT role_id FROM users WHERE id = $1"
   const { rows } = await pool.query(query, [userId]);
@@ -66,6 +72,7 @@ module.exports = {
   changeMemberStatus,
   newPost,
   newUser,
+  checkUsernameExists,
   getUserPosts,
   getPostById,
   editPost

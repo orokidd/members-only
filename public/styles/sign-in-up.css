@@ -83,3 +83,13 @@ input:focus {
 .sign-up-text a:hover, .sign-in-text a:hover{
     color: var(--accent)
 }
+
+.error-container {
+    padding-bottom: 18px;
+    color: rgb(207, 81, 81);
+}
+
+.error-container p{
+    text-align: center;
+    font-weight: 400;
+}

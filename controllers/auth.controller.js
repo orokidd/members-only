@@ -24,6 +24,18 @@ const controller = {
 
     postSignUp: async (req, res) => {
         try {
+            const password = req.body.password;
+            const passwordConfirmation = req.body.repeat_password;
+
+            const usernameExist = await db.checkUsernameExists(req.body.username)
+            if (usernameExist) {
+                return res.render("./sign-up/sign-up", { error: "Username already taken"})
+            }
+
+            if (password !== passwordConfirmation) {
+                return res.render("./sign-up/sign-up", { error: "Password doesn't match"} )
+            }
+
             const hashedPassword = await bcrypt.hash(req.body.password, 10)
             const newUserData = { fullname: req.body.fullname, username: req.body.username, password_hash: hashedPassword}
 
@@ -31,7 +43,7 @@ const controller = {
             res.redirect("/")
         } catch(err) {
             console.log(err)
-            res.status(500).render("sign-up-form", {
+            res.status(500).render("./sign-up/sign-up", {
                 error: "Registration failed. Please try again."
             })
         }
