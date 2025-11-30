@@ -7,7 +7,11 @@
 }
 
 .welcome-container {
-    padding-bottom: 8px;
+    padding-bottom: 0;
+}
+
+.welcome-text {
+    padding-bottom: 30px;
 }
 
 .new-post{
