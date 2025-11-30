@@ -5,7 +5,6 @@ const path = require("path")
 const session = require("express-session")
 const passport = require("passport")
 
-const pool = require("./models/pool")
 const initializePassport = require("./config/passport")
 
 const authRouter = require("./routes/auth.routes")
@@ -34,7 +33,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-initializePassport(passport, pool);
+initializePassport(passport);
 
 app.use("/", authRouter)
 app.use("/", indexRouter)
