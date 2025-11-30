@@ -10,10 +10,22 @@ const controller = {
         res.render("./sign-in/sign-in")
     },
 
-    postSignIn: passport.authenticate("local", {
-        successRedirect: "/",
-        failureRedirect: "/sign-in"
-    }),
+    postSignIn: (req, res, next) => {
+        passport.authenticate('local', (err, user, info) => {
+            if (err) return next(err);
+        
+            if (!user) {
+                return res.render('./sign-in/sign-in', { 
+                    error: info?.message,
+                });
+            }
+
+            req.logIn(user, (err) => {
+                if (err) return next(err);
+                return res.redirect('/');
+            });
+        })(req, res, next);
+    },
 
     getSignUp: (req, res) => {
         if (req.isAuthenticated()) {

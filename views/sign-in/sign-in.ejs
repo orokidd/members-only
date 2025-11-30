@@ -17,6 +17,9 @@
             </div>
             <h1>Sign In</h1>
             <p>Please enter your credentials to sign in</p>
+            <% if (locals.error) { %>
+              <div><%= error %></div>
+            <% } %>
         </div>
         
         <form action="/sign-in" method="POST" class="sign-in-form">

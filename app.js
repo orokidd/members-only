@@ -41,6 +41,12 @@ app.use("/", membershipRouter)
 app.use("/", postRouter)
 app.use("/", profileRouter)
 
+// app.use((req, res, next) => {
+//   res.status(404).render("/error", {
+//     message: "Page not found"
+//   })
+// })
+
 app.locals.formatDate = formatDate;
 
 app.listen(3000, (error) => {

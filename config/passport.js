@@ -9,7 +9,7 @@ function initializePassport(passport, pool) {
         const user = rows[0];
 
         if (!user) {
-          return done(null, false, { message: "Incorrect username" });
+          return done(null, false, { message: "Incorrect username" }); // null: error object, false: user, and error msg
         }
 
         const passwordMatch = await bcrypt.compare(password, user.password_hash);
