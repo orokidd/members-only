@@ -1,9 +1,11 @@
 const db = require("../models/queries")
 
 const controller = {
-    getProfile: async (req, res) => {
+    getProfile: async (req, res, next) => {
         if (!req.isAuthenticated()) {
-            res.redirect("/")
+            // return res.redirect("/")
+            const error = new Error()
+            return next(error)
         }
 
         // const userId = req.params.userId

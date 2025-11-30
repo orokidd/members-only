@@ -1,9 +1,11 @@
 const db = require("../models/queries")
 
 const controller = {
-    getNewPost: (req, res) => {
+    getNewPost: (req, res, next) => {
         if (!req.isAuthenticated()) {
-            return res.redirect("/sign-in")
+            // return res.redirect("/sign-in") old version
+            const error = new Error()
+            return next(error)
         }
         res.render("./post/post", { user: req.user })
     },
@@ -41,7 +43,7 @@ const controller = {
         }
     },
 
-    getEditPost: async (req, res) => {
+    getEditPost: async (req, res, next) => {
         const postId = req.params.postId
 
         try {
@@ -54,7 +56,7 @@ const controller = {
             res.render("./edit/edit", { user:req.user, post:selectedPost })
         } catch (err) {
             console.log(err)
-            res.status(500).send("error fetching post")
+            next(err)
         }
     },
 

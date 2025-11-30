@@ -13,6 +13,7 @@ const indexRouter = require("./routes/index.routes")
 const membershipRouter = require("./routes/membership.routes")
 const postRouter = require("./routes/post.routes")
 const profileRouter = require("./routes/profile.routes")
+const errorHandler = require("./middleware/errorHandler")
 
 const formatDate = require("./utils/formatDate");
 
@@ -41,11 +42,8 @@ app.use("/", membershipRouter)
 app.use("/", postRouter)
 app.use("/", profileRouter)
 
-// app.use((req, res, next) => {
-//   res.status(404).render("/error", {
-//     message: "Page not found"
-//   })
-// })
+app.use(errorHandler.notFound)
+app.use(errorHandler.serverError)
 
 app.locals.formatDate = formatDate;
 

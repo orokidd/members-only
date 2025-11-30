@@ -1,9 +1,11 @@
 const db = require("../models/queries")
 
 const controller = {
-    getMember: (req, res) => {
+    getMember: (req, res, next) => {
         if (!req.isAuthenticated()) {
-            return res.redirect("/sign-in")
+            // return res.redirect("/sign-in")
+            const error = new Error
+            return next(error)
         }
         res.render("./member/member", {user: req.user})
     },
