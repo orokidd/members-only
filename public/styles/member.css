@@ -36,7 +36,6 @@
     outline:none;
 }
 
-
 .secret_password_submit {
     cursor: pointer;
     padding: 12px;
@@ -55,4 +54,20 @@
 
 .secret_password_submit:hover svg {
     stroke: var(--bg);
+}
+
+.error-text {
+    color: rgb(207, 81, 81);
+    padding-top: 8px;
+}
+
+@media screen and (max-width: 480px) {
+    .member-status-text {
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+
+    .input-group {
+        width: auto;
+    }
 }

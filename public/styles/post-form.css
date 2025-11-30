@@ -57,6 +57,7 @@ input, textarea, button {
     font-size: .9rem;
     color: rgb(116, 116, 116);
 }
+
 .submit-button {
     cursor: pointer;
     background-color: var(--accent);
@@ -82,4 +83,27 @@ input, textarea, button {
 
 .cancel-button:hover {
     filter: brightness(80%)
+}
+
+@media screen and (max-width: 480px) {
+    .button-group {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .reminder-text {
+        grid-row: 1;
+        grid-column: 1 / span 4;
+        padding-bottom: 8px;
+    }
+
+    .cancel-button {
+        grid-row: 2;
+        grid-column: 1;
+    }
+
+    .submit-button {
+        grid-row: 2;
+        grid-column: 2;
+    }
 }

@@ -93,3 +93,15 @@ input:focus {
     text-align: center;
     font-weight: 400;
 }
+
+@media screen and (max-width: 768px) {
+    body {
+        background-color: var(--bg-alt);
+    }
+
+    .form-container {
+        min-width: 0px;
+        padding: 0;
+        border: none;
+    }
+}
