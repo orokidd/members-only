@@ -23,6 +23,6 @@ The live site can be viewed [here](https://orokidd-members-only.onrender.com).
 
 The [project specification](https://www.theodinproject.com/lessons/node-path-nodejs-members-only) describes the general instructions in doing the project. This project primarily served as practice for understanding Node, Express, EJS, PostgreSQL, and Passport.js for authentication.
 
-Sign in with demo account: 
+Sign in with demo account
 Username: oro
 Password: oroo
