@@ -1,4 +1,4 @@
-.modal {
+#delete-modal {
   display: none;
   position: fixed;
   top: 0;
@@ -11,10 +11,6 @@
   z-index: 999;
 }
 
-.failed-modal {
-  display: flex;
-}
-
 .modal-content {
   background: var(--bg-alt);
   padding: 3rem;
@@ -23,31 +19,14 @@
   max-width: 480px;
 }
 
-#item-name {
-    font-weight: bold;
-}
-
-#deleteForm {
+#delete-form {
     display: flex;
     flex-direction: column;
     gap: 16px;
     margin-top: 16px;
 }
 
-#password-input {
-    padding: 8px;
-    border-radius: 6px;
-    border: 1px solid var(--dark-gray);
-    background: var(--bg);
-    color: var(--fg);
-}
-
-#password-input:focus {
-    outline: none;
-    /* border-color: var(--accent); */
-}
-
-.btn-delete{
+.confirm-btn{
   background: #d9534f;
   color: white;
   border: none;
@@ -58,11 +37,11 @@
   transition: all 0.3s ease;
 }
 
-.btn-delete:hover {
+.confirm-btn:hover {
   background: #963935;
 }
 
-.btn-cancel, .btn-confirm  {
+.cancel-btn {
   background: #aaa;
   color: white;
   border: none;
@@ -72,10 +51,10 @@
   transition: all 0.3s ease;
 }
 
-.btn-cancel:hover, .btn-confirm:hover {
+.cancel-btn:hover {
   background: #777;
 }
 
-.btn-confirm {
+.confirm-btn {
   margin-top: 12px;
 }

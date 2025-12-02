@@ -33,10 +33,17 @@ const controller = {
 
     deletePost: async (req, res) => {
         const postId = req.params.postId
+        const fromPage = req.query.from
 
         try {
             await db.deletePost(postId)
-            res.redirect("/")
+
+            if (fromPage === "profile") {
+                res.redirect("/profile")
+            } else {
+                res.redirect("/")
+            }
+
         } catch (err) {
             console.log(err)
             res.status(500).send("error deleting post")
