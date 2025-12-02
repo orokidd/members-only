@@ -81,3 +81,28 @@
 .post-edit-link:hover  {
     background-color: var(--bg);
 }
+
+@media screen and (max-width: 768px) {
+    .main {
+    max-height: none;
+    overflow-y: scroll;
+}
+
+    .post-author, .post-date {
+        font-size: .7rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .post-title {
+        font-size: 1.2rem;
+    }
+
+    .post-content {
+        font-size: .9rem;
+    }
+
+    .post-author, .post-date {
+        font-size: .7rem;
+    }
+}
