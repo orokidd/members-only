@@ -53,6 +53,7 @@
     border-radius: 24px;
     cursor: pointer;
     transition: all ease 0.3s;
+    min-width: 32px;
 }
 
 .post-delete-button svg {
@@ -70,6 +71,7 @@
     border-radius: 24px;
     cursor: pointer;
     transition: all ease 0.3s;
+    min-width: 32px;
 }
 
 .post-edit-link svg {
