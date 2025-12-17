@@ -13,7 +13,7 @@
 
 </div>
 
-<img src="./public/images/project.png" alt="Screenshot of project page" align="center" style="width: 100%;">
+<img src="./public/images/project-img.png" alt="Screenshot of project page" align="center" style="width: 100%;">
 
 ## 🚀 Live Site
 
@@ -22,3 +22,7 @@ The live site can be viewed [here](https://orokidd-members-only.onrender.com).
 ## 📝 Project Description
 
 The [project specification](https://www.theodinproject.com/lessons/node-path-nodejs-members-only) describes the general instructions in doing the project. This project primarily served as practice for understanding Node, Express, EJS, PostgreSQL, and Passport.js for authentication.
+
+Sign in with demo account
+Username: oro
+Password: oroo
