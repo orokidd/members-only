@@ -19,6 +19,10 @@
 
 The live site can be viewed [here](https://orokidd-members-only.onrender.com).
 
+## 📼 Demo
+
+https://github.com/user-attachments/assets/d8caca7e-6470-437b-92e4-b0b8fea33ca0
+
 ## 📝 Project Description
 
 The [project specification](https://www.theodinproject.com/lessons/node-path-nodejs-members-only) describes the general instructions in doing the project. This project primarily served as practice for understanding Node, Express, EJS, PostgreSQL, and Passport.js for authentication.
